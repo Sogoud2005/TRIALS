@@ -24,22 +24,23 @@ int main(void)
 	scanf("%d", &n);
 
 	int tmp = n;
+	int t = n;
 
 	d = count(n);
 
-	while (n && i < d)
-	{
-		r[i] = n % 10;
-		printf("%d", r[i]);
-		n = n / 10;
-		i++;
-	}
-	printf("\n");
+	r = malloc(sizeof(int) * d);
+	v = malloc(sizeof(int) * d);
 
-	for (int o = d - 1; o >= 0; o++)
+	for (i = 0; tmp > 0; i++)
 	{
-		v[o] = tmp % 10;
+		v[i] = tmp % 10;
 		tmp = tmp / 10;
+	}
+
+	for (int o = d - 1; o >= 0; o--)
+	{
+		r[o] = n % 10;
+		n = n / 10;
 	}
 
 	int j = 0;
@@ -59,10 +60,13 @@ int main(void)
 
 	if (flag == 0)
 	{
-		printf("Palindrome\n");
+		printf("%d is a Palindrome Number\n", t);
 	}
 	else
-		printf("Not Palindrome\n");
+		printf("%d is Not a Palindrome Number\n", t);
+
+	free(v);
+	free(r);
 
 	return (0);
 }

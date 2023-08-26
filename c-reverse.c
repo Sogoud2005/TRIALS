@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	int n;
+	int *n;
 	int i, c = 0;
 
 	printf("Enter a Number : ");
@@ -12,9 +12,10 @@ int main(void)
 
 	while (i)
 	{
-		n = i % 10;
-		printf("%d", n);
+		n[c] = i % 10;
+		printf("%d", n[c]);
 		i = i / 10;
+		c++;
 	}
 	printf("\n");
 
